@@ -51,6 +51,7 @@
         <ul class="todos__list">
           <li class="todos__item">
             <form action="/delete/1" method="post" class="todos__item_form-delete">
+              <input type="hidden" name="_id" value="1">
               <button type="submit" class="todos__item_button-action">
                 <span class="material-symbols-outlined">
                   delete
@@ -58,6 +59,7 @@
               </button>
             </form>
             <form action="/complete/1" method="post" class="todos__item_form-todo">
+              <input type="hidden" name="_id" value="1">
               <div class="todos__item_form-text">
                 Покормить кошку
               </div>
