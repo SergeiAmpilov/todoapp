@@ -4,13 +4,34 @@ const {
 } = require('./constants/constants');
 const router = require('./routes/router');
 const mongoose = require('mongoose');
+const path = require('path');
+const bodyParser = require('body-parser');
+const { engine } = require('express-handlebars');
 
 
 
 const app = express();
 
-app.use(router);
+app.use(express.static(
+  path.join(__dirname, 'public')
+));
 
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }));
+
+// parse application/json
+app.use(bodyParser.json());
+
+// handlebars
+app.engine('hbs', engine({
+  defaultLayout: 'main',
+  extname: 'hbs'
+}));
+app.set('view engine', 'hbs');
+app.set('views', './views');
+
+
+app.use(router);
 
 async function init() {
 

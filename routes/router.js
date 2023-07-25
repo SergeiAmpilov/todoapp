@@ -4,16 +4,12 @@ const router = Router();
 
 
 router.get('/', (req, res, next) => {
-  res.send({
-    ok: 'Main page'
-  });
+  res.render('index', {});
 });
 
 
 router.get('/new', (req, res, next) => {
-  res.send({
-    ok: 'page new task'
-  });
+  res.render('new', {});
 });
 
 
