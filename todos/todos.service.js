@@ -18,6 +18,20 @@ class TodosService {
   addTask(name) {
     return this.todosModel.create({ name });
   }
+
+  delete(id) {
+    return this.todosModel.findByIdAndDelete(id);
+  }
+
+  async toggleComplete(id) {
+
+    const previous = await this.todosModel.findById(id);
+    
+    return this.todosModel.findByIdAndUpdate(id, {
+      completed: !previous.completed,
+    }).exec();
+
+  }
 }
 
 

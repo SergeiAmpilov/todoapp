@@ -15,6 +15,7 @@ router.get('/', async (req, res, next) => {
       id: el.id.toString(),
       completed: el.completed,
       createdAt: new Date(el.createdAt).toLocaleString('ru-RU'),
+      completedClass: el.completed ? 'todos__item_complited' : '',
     };
   });
 
@@ -47,16 +48,22 @@ router.post('/add', async (req, res, next) => {
 
 });
 
-router.post('/complete', (req, res, next) => {
-  res.send({
-    ok: 'toggle complete task'
-  });
+router.post('/complete', async (req, res, next) => {
+
+  const { id } = req.body;
+
+  await todosService.toggleComplete(id);
+
+  res.redirect('/');
+
 });
 
-router.post('/delete', (req, res, next) => {
-  res.send({
-    ok: 'delete task'
-  });
+router.post('/delete', async (req, res, next) => {
+  const { id } = req.body;
+
+  const newTask = await todosService.delete(id);
+  res.redirect('/');
+
 });
 
 
