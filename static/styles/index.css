@@ -7,4 +7,6 @@
 @import url(./header/__nav/_link/header__nav_link.css);
 
 
+@import url(./wellcome/wellcome.css);
+@import url(./wellcome/__text/wellcome__text.css);
 @import url(./wellcome/__img/wellcome__img.css);
