@@ -15,3 +15,6 @@
 @import url(./todos/__item/_form/todos__item_form-delete.css);
 @import url(./todos/__item/_form/todos__item_form-text.css);
 @import url(./todos/__item/_button/todos__item_button-action.css);
+@import url(./todos/__item/_button/todos__item_button_add.css);
+@import url(./todos/__form-add/todos__form-add.css);
+@import url(./todos/__input/todos__input.css);
