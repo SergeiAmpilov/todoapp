@@ -2,7 +2,6 @@
   border: none;
   background-color: transparent;
   color: #ffde70;  
-  /* transition: .5s ease; */
 }
 
 .todos__item_button-action:hover {
